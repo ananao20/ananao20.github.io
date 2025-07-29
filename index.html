@@ -53,6 +53,25 @@
         a:hover {
             text-decoration: underline;
         }
+        .pretty-button {
+        display: inline-block;
+        background-color: #1a73e8;
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        margin: 10px 8px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .pretty-button:hover {
+            background-color: #0c56d0;
+            transform: translateY(-2px);
+        }
+
     </style>
 </head>
 <body>
@@ -66,15 +85,12 @@
     </header>
 
     <section id="quick-links" style="text-align: center; margin-top: 20px;">
-    <button onclick="window.location.href='Patent.pdf'">View Patent</button>
-    <a href="https://edas.info/showPaper.php?m=1571126201" target="_blank">
-    <button>View Research Paper</button>
-    </a>
-
-<!--     <button onclick="window.location.href='https://edas.info/showPaper.php?m=1571126201'">View Research Paper</button> -->
-<!--     <button onclick="window.location.href='path-to-your-certificates.pdf'">View Certificates</button> -->
-<!--     <button onclick="window.location.href='#top'">Home</button> -->
+    <a class="pretty-button" href="Patent.pdf" target="_blank">View Patent</a>
+    <a class="pretty-button" href="https://edas.info/showPaper.php?m=1571126201" target="_blank">View Research Paper</a>
+<!--     <a class="pretty-button" href="Certificates.pdf" target="_blank">View Certificates</a> -->
+<!--     <a class="pretty-button" href="#top">Home</a> -->
     </section>
+
 
     <section id="about">
         <h2>About Me</h2>
