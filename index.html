@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anamta Ansari - AI/ML Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -307,9 +308,15 @@
         .achievements li::before {
             content: '→';
             position: absolute;
-            left: 0;
-            color: #f093fb;
-            font-weight: bold;
+            /* left: 0; */
+            left: 0.5rem;
+            top: 0.05rem;
+            /* color: #f093fb; */
+            /* color: aliceblue; */
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px rgba(240,147,251,0.35);
         }
 
         /* Skills Grid */
@@ -416,7 +423,7 @@
         }
 
         .contact-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1); 
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -514,6 +521,188 @@
             z-index: 1001;
             transition: width 0.1s ease;
         }
+/* === Dark theme hardening (paste at END of <style>) === */
+        :root{
+        --bg:#0a0a0a;
+        --text:#eaeaea;
+        --muted:#bdbdbd;
+        --card: rgba(10,10,10,0.85);
+        --card-border: rgba(255,255,255,0.08);
+        --accent1:#667eea;
+        --accent2:#f093fb;
+        }
+
+        /* Body & text */
+        body{ background: var(--bg); color: var(--text); }
+
+        /* Animated background—add a dark overlay so gradients never blow out text */
+        .bg-animation{
+        filter: none; /* keep crisp */
+        }
+        .bg-animation::after{
+        content:"";
+        position:absolute; inset:0;
+        background: rgba(0,0,0,0.55);  /* key: dims bright gradient behind content */
+        pointer-events:none;
+        }
+
+        /* Nav: darker glass */
+        nav{
+        background: rgba(0,0,0,0.55);
+        border-bottom: 1px solid var(--card-border);
+        }
+
+        /* Section titles & links */
+        .section-title{ color:#fff; }
+        .nav-links a{ color:#fff; }
+        .nav-links a.active,
+        .nav-links a:hover{
+        color: var(--accent2);
+        }
+        .nav-links a::after{ background: var(--accent2); }
+
+        /* Cards: switch from light glass to dark glass */
+        .experience-card,
+        .skill-category,
+        .education-card,
+        .contact-item{
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        color: var(--text);
+        }
+
+        /* Subtle text tones */
+        .company-info .role{ color: var(--accent2); }
+        .company-info .location,
+        .achievements li,
+        .education-card .location{ color: var(--muted); }
+
+        .achievements li::before{ color: var(--accent2); }
+
+        /* Buttons: keep strong contrast */
+        .btn-primary{
+        background: linear-gradient(135deg, var(--accent1), #764ba2);
+        color:#fff;
+        }
+        .btn-secondary{
+        background: rgba(255,255,255,0.04);
+        border-color: var(--card-border);
+        color:#fff;
+        }
+
+        /* Progress bar uses your accents */
+        .scroll-progress{
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+        }
+
+        /* Improve readability on small screens */
+        @media (max-width: 768px){
+        .experience-card,
+        .skill-category,
+        .education-card,
+        .contact-item{
+            background: rgba(12,12,12,0.9);
+        }
+        }
+/* ==== Typography & readability ==== */
+        body {
+        font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        letter-spacing: 0.1px;
+        }
+
+        .hero h1 { font-weight: 800; }
+        .section-title { font-weight: 800; }
+        .company-info h3 { font-weight: 700; }
+        .company-info .role { font-weight: 700; }
+
+        /* Slightly larger base size for card content */
+        .experience-card, .skill-category, .education-card { font-size: 1.02rem; }
+
+        /* ==== Remove the thin blue line on top of the card ==== */
+        .experience-card::before { display: none; }
+
+        /* ==== Replace skinny arrows with solid gradient dots ==== */
+        .achievements { list-style: none; }
+        .achievements li {
+        position: relative;
+        padding-left: 2rem;
+        margin: 0.5rem 0 0.75rem;
+        line-height: 1.75;
+        color: var(--text);
+        }
+        .achievements li::before {
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 0.95em;              /* vertically centers the dot with text */
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+        box-shadow: 0 0 0 3px rgba(255,255,255,0.04); /* subtle ring for contrast */
+        }
+
+        /* Make cards feel sturdier on dark bg */
+        .experience-card,
+        .skill-category,
+        .education-card {
+        background: rgba(12,12,12,0.92);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        }
+
+        /* Date pill stays crisp */
+        .duration {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #eaeaea;
+        }
+
+        /* Optional: slightly brighter headings inside cards */
+        .company-info h3 { color: #fff; }
+        /* ----- Certifications layout + chips ----- */
+        .certs-section { margin-top: 3rem; }
+        .section-subtitle {
+        color:#fff; text-align:center; margin-bottom:2rem; font-size:1.5rem; font-weight:800;
+        }
+
+        .cert-grid{
+        display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;
+        }
+
+        .cert-chip{
+        display:inline-flex; align-items:center; gap:.6rem;
+        padding: 0.9rem 1.4rem;
+        border-radius: 9999px;
+        text-decoration:none;
+        color: var(--text);
+        background: rgba(12,12,12,0.92);
+        border: 1px solid rgba(255,255,255,0.10);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .cert-chip i{ color: var(--accent2); }
+        .cert-chip:hover{
+        transform: translateY(-2px);
+        border-color: rgba(255,255,255,0.18);
+        background: rgba(18,18,18,0.95);
+        box-shadow: 0 16px 36px rgba(0,0,0,0.34);
+        }
+
+        .cert-chip:focus-visible{
+        outline: 2px solid var(--accent2);
+        outline-offset: 3px;
+        }
+
+        /* prevent purple/underline link defaults anywhere inside chips */
+        .cert-chip, .cert-chip:visited, .cert-chip:hover, .cert-chip:active{
+        color: var(--text);
+        text-decoration: none;
+        }
+
+
     </style>
 </head>
 <body>
@@ -622,6 +811,7 @@
                     <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Linear Regression</span>
+                        <span class="skill-tag">Logistic Regression</span>                        
                         <span class="skill-tag">Random Forests</span>
                         <span class="skill-tag">XGBoost</span>
                         <span class="skill-tag">K-Means</span>
@@ -723,19 +913,41 @@
                 </div>
             </div>
 
-            <div style="margin-top: 3rem;">
+            <!-- <div style="margin-top: 3rem;">
                 <h3 style="color: white; text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">Professional Certifications</h3>
                 <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                     <div class="skill-tag" style="padding: 1rem 2rem; font-size: 1rem;">
+                          <a href="https://ananao20.github.io/certs/Anamta Ansari - Intro to Machine Learning.png" target="_blank" rel="noopener" download>
                         <i class="fas fa-certificate" style="margin-right: 0.5rem; color: #f093fb;"></i>
                         Introduction to Machine Learning - Kaggle
-                    </div>
+                    </a></div>
                     <div class="skill-tag" style="padding: 1rem 2rem; font-size: 1rem;">
+                        <a href="https://ananao20.github.io/certs/Databricks - Generative AI certificate.pdf" target="_blank" rel="noopener" download>
                         <i class="fas fa-certificate" style="margin-right: 0.5rem; color: #f093fb;"></i>
                         Generative AI Fundamentals - Databricks
-                    </div>
+                    </a></div>
                 </div>
+            </div> -->
+            <div class="certs-section">
+            <h3 class="section-subtitle">Professional Certifications</h3>
+
+            <div class="cert-grid">
+                <a class="cert-chip"
+                href="https://ananao20.github.io/certs/Anamta%20Ansari%20-%20Intro%20to%20Machine%20Learning.png"
+                target="_blank" rel="noopener">
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <span>Introduction to Machine Learning – Kaggle</span>
+                </a>
+
+                <a class="cert-chip"
+                href="https://ananao20.github.io/certs/Databricks%20-%20Generative%20AI%20certificate.pdf"
+                target="_blank" rel="noopener" download>
+                <i class="fas fa-certificate" aria-hidden="true"></i>
+                <span>Generative AI Fundamentals – Databricks (PDF)</span>
+                </a>
             </div>
+            </div>
+
         </div>
     </section>
 
@@ -750,7 +962,7 @@
                 <a href="tel:+17144872750" class="contact-item fade-in-up">
                     <i class="fas fa-phone"></i>
                     <h3>Phone</h3>
-                    <p>(714) 487-2750</p>
+                    <p>+1 (714) 487-2750</p>
                 </a>
 
                 <a href="mailto:anamta.a@mycvhire.com" class="contact-item fade-in-up">
